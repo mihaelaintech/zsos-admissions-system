@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="dashboard-page">
+    <div class="dashboard-title-card">
+        <h1>Profile</h1>
+        <p>Basic account information for the current user.</p>
+    </div>
+
+    <div class="dashboard-grid two-col-grid">
+        <div class="dashboard-card">
+            <h2>Account Details</h2>
+
+            <p><strong>Username:</strong> {{ session.get("username") }}</p>
+
+            <p><strong>Role:</strong>
+                {% if session.get("role") == "student_adviser" %}
+                    Student adviser
+                {% elif session.get("role") == "manager" %}
+                    Manager
+                {% elif session.get("role") == "student" %}
+                    Student
+                {% else %}
+                    {{ session.get("role")|title }}
+                {% endif %}
+            </p>
+
+            {% if user_row %}
+                <p><strong>Full Name:</strong> {{ user_row["full_name"] }}</p>
+                <p><strong>Email:</strong> {{ user_row["email"] }}</p>
+            {% else %}
+                <p>No profile information available.</p>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %}

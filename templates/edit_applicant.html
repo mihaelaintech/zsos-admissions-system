@@ -1,0 +1,136 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="dashboard-page">
+    <div class="dashboard-title-card">
+        <h1>Edit Applicant</h1>
+        <p>Update applicant details, workflow status, notes, and document tracking.</p>
+    </div>
+
+    <form method="POST" class="app-form-card" onsubmit="return validateForm()">
+        <div class="form-grid">
+            <div class="form-card">
+                <h2>Applicant Information</h2>
+
+                <label>Full Name</label>
+                <input type="text" name="full_name" value="{{ applicant['full_name'] }}" required>
+
+                <label>Email</label>
+                <input type="email" name="email" value="{{ applicant['email'] }}" required>
+
+                <label>Phone</label>
+                <input type="text" name="phone" value="{{ applicant['phone'] or '' }}">
+
+                <label>Campus City</label>
+                <select name="campus_city" required>
+                    <option value="">Select campus city</option>
+                    {% for option in campus_cities %}
+                        <option value="{{ option }}" {% if applicant['campus_city'] == option %}selected{% endif %}>{{ option }}</option>
+                    {% endfor %}
+                </select>
+
+                <label>Study Level</label>
+                <select name="study_level" required>
+                    <option value="">Select study level</option>
+                    {% for option in study_levels %}
+                        <option value="{{ option }}" {% if applicant['study_level'] == option %}selected{% endif %}>{{ option }}</option>
+                    {% endfor %}
+                </select>
+
+                <label>Intake</label>
+                <select name="intake" required>
+                    <option value="">Select intake</option>
+                    {% for option in intakes %}
+                        <option value="{{ option }}" {% if applicant['intake'] == option %}selected{% endif %}>{{ option }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+
+            <div class="form-card">
+                <h2>Application Details</h2>
+
+                <label>Application Type</label>
+                <select name="application_type" required>
+                    <option value="">Select application type</option>
+                    {% for option in application_types %}
+                        <option value="{{ option }}" {% if applicant['application_type'] == option %}selected{% endif %}>{{ option }}</option>
+                    {% endfor %}
+                </select>
+
+                <label>Study Mode</label>
+                <select name="study_mode" required>
+                    <option value="">Select study mode</option>
+                    {% for option in study_modes %}
+                        <option value="{{ option }}" {% if applicant['study_mode'] == option %}selected{% endif %}>{{ option }}</option>
+                    {% endfor %}
+                </select>
+
+                <label>University Interest</label>
+                <select name="university_interest" required>
+                    <option value="">Select university</option>
+                    {% for option in universities %}
+                        <option value="{{ option }}" {% if applicant['university_interest'] == option %}selected{% endif %}>{{ option }}</option>
+                    {% endfor %}
+                </select>
+
+                <label>Available Course</label>
+                <select name="course_interest" required>
+                    <option value="">Select course</option>
+                    {% for option in courses %}
+                        <option value="{{ option }}" {% if applicant['course_interest'] == option %}selected{% endif %}>{{ option }}</option>
+                    {% endfor %}
+                </select>
+
+                <label>Course Duration</label>
+                <select name="course_duration" required>
+                    <option value="">Select duration</option>
+                    {% for option in course_durations %}
+                        <option value="{{ option }}" {% if applicant['course_duration'] == option %}selected{% endif %}>{{ option }}</option>
+                    {% endfor %}
+                </select>
+
+                <label>Status</label>
+                <select name="status" required>
+                    {% for option in statuses %}
+                        <option value="{{ option }}" {% if applicant['status'] == option %}selected{% endif %}>{{ option }}</option>
+                    {% endfor %}
+                </select>
+
+                <label>Internal Notes</label>
+                <textarea name="notes" rows="6">{{ applicant['notes'] or '' }}</textarea>
+            </div>
+
+            <div class="form-card form-card-wide">
+                <h2>Document Tracking</h2>
+
+                <div class="checkbox-grid">
+                    <label class="checkbox-item">
+                        <input type="checkbox" name="cv_uploaded" {% if documents and documents["cv_uploaded"] %}checked{% endif %}>
+                        CV uploaded
+                    </label>
+
+                    <label class="checkbox-item">
+                        <input type="checkbox" name="passport_uploaded" {% if documents and documents["passport_uploaded"] %}checked{% endif %}>
+                        Passport uploaded
+                    </label>
+
+                    <label class="checkbox-item">
+                        <input type="checkbox" name="transcript_uploaded" {% if documents and documents["transcript_uploaded"] %}checked{% endif %}>
+                        Transcript uploaded
+                    </label>
+
+                    <label class="checkbox-item">
+                        <input type="checkbox" name="personal_statement_uploaded" {% if documents and documents["personal_statement_uploaded"] %}checked{% endif %}>
+                        Personal statement uploaded
+                    </label>
+                </div>
+            </div>
+
+            <div class="form-card form-card-wide action-card">
+                <button type="submit" class="primary-btn">Save Changes</button>
+                <a href="{{ url_for('applicant_detail', applicant_id=applicant['id']) }}" class="secondary-btn action-link small-btn">Cancel</a>
+            </div>
+        </div>
+    </form>
+</div>
+{% endblock %}

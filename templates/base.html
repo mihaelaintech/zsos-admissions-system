@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZSOS Admissions System</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+    {% set public_pages = ['home', 'student_login', 'staff_login', 'register', 'register_success'] %}
+
+    {% if request.endpoint not in public_pages %}
+    <header class="top-header">
+        <div class="top-header-left">
+            {% if session.get("role") == "student" %}
+                <a href="{{ url_for('student_home') }}" class="top-logo-link">
+            {% else %}
+                <a href="{{ url_for('dashboard') }}" class="top-logo-link">
+            {% endif %}
+                <img src="{{ url_for('static', filename='logo.png') }}" alt="ZSOS Logo" class="top-logo">
+            </a>
+        </div>
+
+        <div class="top-header-right">
+            <a href="{{ url_for('help_page') }}" class="top-link">Help</a>
+            <a href="{{ url_for('profile') }}" class="top-link">Profile</a>
+            <a href="{{ url_for('logout') }}" class="top-link logout-link">Logout</a>
+        </div>
+    </header>
+
+    <nav class="sub-navbar">
+        {% if session.get("role") == "student" %}
+            <a href="{{ url_for('student_home') }}"
+               class="sub-nav-link {% if request.endpoint == 'student_home' %}active{% endif %}">
+               Home
+            </a>
+        {% elif session.get("role") in ["student_adviser", "manager"] %}
+            <a href="{{ url_for('dashboard') }}"
+               class="sub-nav-link {% if request.endpoint == 'dashboard' %}active{% endif %}">
+               Dashboard
+            </a>
+
+            <a href="{{ url_for('view_applicants') }}"
+               class="sub-nav-link {% if request.endpoint in ['view_applicants', 'applicant_detail', 'edit_applicant', 'add_applicant'] %}active{% endif %}">
+               Applicants
+            </a>
+        {% endif %}
+    </nav>
+    {% endif %}
+
+    <main class="{% if request.endpoint in public_pages %}public-main{% else %}internal-main{% endif %}">
+        {% block content %}{% endblock %}
+    </main>
+
+    <script>
+    function validateForm() {
+        const requiredFields = document.querySelectorAll("form select[required], form input[required], form textarea[required]");
+        for (let field of requiredFields) {
+            if (!field.value || !field.value.trim()) {
+                alert("Please complete all required fields.");
+                field.focus();
+                return false;
+            }
+        }
+        return true;
+    }
+    </script>
+
+</body>
+</html>

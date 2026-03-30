@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="dashboard-page">
+    <div class="dashboard-title-card">
+        <h1>Help</h1>
+        <p>Quick guidance for using the admissions management system.</p>
+    </div>
+
+    <div class="dashboard-grid two-col-grid">
+        <div class="dashboard-card">
+            <h2>Student Guide</h2>
+            <p>Students can log in, access their home page, and update their application details.</p>
+            <p>This includes phone number, campus city, study level, intake, application type, study mode, university choice, course selection, course duration, notes, and document tracking.</p>
+            <p>After making changes, click <strong>Save Application</strong> to update the record.</p>
+        </div>
+
+        <div class="dashboard-card">
+            <h2>Staff Guide</h2>
+            <p>Staff users can access the dashboard, search and filter applicants, add new records, edit applicant details, update workflow status, and delete records when permitted.</p>
+            <p>Managers have full access across all applicant records. Student advisers can view all applicants, but can edit and delete only the records they created.</p>
+            <p>Staff can also review document completion and internal notes for each applicant.</p>
+        </div>
+    </div>
+</div>
+{% endblock %}

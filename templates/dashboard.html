@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="dashboard-page">
+    <div class="dashboard-title-card">
+        <h1>Staff Dashboard</h1>
+        <p>Monitor applicant volume, workflow stages, and pending document checks.</p>
+    </div>
+
+    <div class="dashboard-grid">
+        <div class="dashboard-card stat-card">
+            <div class="card-label">Total Applicants</div>
+            <p class="stat-number">{{ total_applicants }}</p>
+        </div>
+
+        <div class="dashboard-card stat-card">
+            <div class="card-label">Pending Documents</div>
+            <p class="stat-number">{{ pending_documents }}</p>
+        </div>
+
+        <div class="dashboard-card stat-card">
+            <div class="card-label">Interview Scheduled</div>
+            <p class="stat-number">{{ interview_scheduled }}</p>
+        </div>
+
+        <div class="dashboard-card stat-card">
+            <div class="card-label">Offers Received</div>
+            <p class="stat-number">{{ offers_received }}</p>
+        </div>
+
+        <div class="dashboard-card dashboard-card-wide">
+            <h2>Applicants by Status</h2>
+
+            {% if status_counts %}
+                <div class="status-grid">
+                    {% for row in status_counts %}
+                        <div class="status-item">
+                            <span class="status-badge status-{{ row['status']|lower|replace(' ', '-') }}">
+                                {{ row["status"] }}
+                            </span>
+                            <span class="status-total">{{ row["total"] }}</span>
+                        </div>
+                    {% endfor %}
+                </div>
+            {% else %}
+                <p>No applicant status data available.</p>
+            {% endif %}
+        </div>
+
+        <div class="dashboard-card dashboard-card-wide action-card">
+            <a href="{{ url_for('view_applicants') }}" class="secondary-btn action-link small-btn">View Applicants</a>
+            <a href="{{ url_for('add_applicant') }}" class="primary-btn action-link small-btn">Add Applicant</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

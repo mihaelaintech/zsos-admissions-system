@@ -1,0 +1,126 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="auth-page">
+    <div class="auth-card auth-card-wide">
+        <img src="{{ url_for('static', filename='logo.png') }}" alt="ZSOS Logo" class="auth-logo">
+        <h1 class="auth-title">CREATE STUDENT ACCOUNT</h1>
+        <p class="auth-subtitle">Student Registration</p>
+
+        {% if error %}
+            <p class="error-message">{{ error }}</p>
+        {% endif %}
+
+        <p class="auth-helper-text">
+            Your username and password will be generated automatically from your email address.
+            Please complete your application details below.
+        </p>
+
+        <form method="POST" class="register-form-grid" onsubmit="return validateForm()">
+            <div class="register-form-group register-full-width">
+                <label for="full_name">Full Name</label>
+                <input type="text" id="full_name" name="full_name" required>
+            </div>
+
+            <div class="register-form-group register-full-width">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+
+            <div class="register-form-group">
+                <label for="campus_city">Campus City</label>
+                <select id="campus_city" name="campus_city" required>
+                    <option value="">Select campus city</option>
+                    {% for option in campus_cities %}
+                        <option value="{{ option }}">{{ option }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+
+            <div class="register-form-group">
+                <label for="study_level">Study Level</label>
+                <select id="study_level" name="study_level" required>
+                    <option value="">Select study level</option>
+                    {% for option in study_levels %}
+                        <option value="{{ option }}">{{ option }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+
+            <div class="register-form-group">
+                <label for="intake">Intake</label>
+                <select id="intake" name="intake" required>
+                    <option value="">Select intake</option>
+                    {% for option in intakes %}
+                        <option value="{{ option }}">{{ option }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+
+            <div class="register-form-group">
+                <label for="application_type">Application Type</label>
+                <select id="application_type" name="application_type" required>
+                    <option value="">Select application type</option>
+                    {% for option in application_types %}
+                        <option value="{{ option }}">{{ option }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+
+            <div class="register-form-group">
+                <label for="study_mode">Study Mode</label>
+                <select id="study_mode" name="study_mode" required>
+                    <option value="">Select study mode</option>
+                    {% for option in study_modes %}
+                        <option value="{{ option }}">{{ option }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+
+            <div class="register-form-group">
+                <label for="university_interest">University Interest</label>
+                <select id="university_interest" name="university_interest" required>
+                    <option value="">Select university</option>
+                    {% for option in universities %}
+                        <option value="{{ option }}">{{ option }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+
+            <div class="register-form-group register-full-width">
+                <label for="course_interest">Available Course</label>
+                <select id="course_interest" name="course_interest" required>
+                    <option value="">Select course</option>
+                    {% for option in courses %}
+                        <option value="{{ option }}">{{ option }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+
+            <div class="register-form-group">
+                <label for="course_duration">Course Duration</label>
+                <select id="course_duration" name="course_duration" required>
+                    <option value="">Select duration</option>
+                    {% for option in course_durations %}
+                        <option value="{{ option }}">{{ option }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+
+            <div class="register-form-group register-full-width">
+                <label for="notes">Student Notes</label>
+                <textarea id="notes" name="notes" rows="4"></textarea>
+            </div>
+
+            <div class="register-full-width">
+                <button type="submit" class="auth-btn">Register</button>
+            </div>
+        </form>
+
+        <div class="auth-links">
+            <a href="{{ url_for('student_login') }}">Already have an account? Student Login</a>
+            <a href="{{ url_for('home') }}">Back to portal selection</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

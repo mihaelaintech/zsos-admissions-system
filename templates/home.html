@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="home-container">
+    <div class="home-card">
+        <img src="{{ url_for('static', filename='logo.png') }}" alt="ZSOS Logo" class="home-logo">
+        <h2>Access your Account</h2>
+
+        <div class="home-actions">
+            <a href="{{ url_for('student_login') }}" class="home-btn">Student Login</a>
+            <a href="{{ url_for('staff_login') }}" class="home-btn">Staff Login</a>
+            <a href="{{ url_for('register') }}" class="home-btn light">Student Register</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,142 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="dashboard-page">
+    <div class="dashboard-title-card">
+        <h1>Add Applicant</h1>
+        <p>Create a new applicant record and initialise workflow tracking.</p>
+    </div>
+
+    {% if error %}
+        <div class="form-card" style="margin-bottom: 20px;">
+            <p class="error-message">{{ error }}</p>
+        </div>
+    {% endif %}
+
+    <form method="POST" class="app-form-card" onsubmit="return validateForm()">
+        <div class="form-grid">
+            <div class="form-card">
+                <h2>Applicant Information</h2>
+
+                <label>Full Name</label>
+                <input type="text" name="full_name" required>
+
+                <label>Email</label>
+                <input type="email" name="email" required>
+
+                <label>Phone</label>
+                <input type="text" name="phone">
+
+                <label>Campus City</label>
+                <select name="campus_city" required>
+                    <option value="">Select campus city</option>
+                    {% for option in campus_cities %}
+                        <option value="{{ option }}">{{ option }}</option>
+                    {% endfor %}
+                </select>
+
+                <label>Study Level</label>
+                <select name="study_level" required>
+                    <option value="">Select study level</option>
+                    {% for option in study_levels %}
+                        <option value="{{ option }}">{{ option }}</option>
+                    {% endfor %}
+                </select>
+
+                <label>Intake</label>
+                <select name="intake" required>
+                    <option value="">Select intake</option>
+                    {% for option in intakes %}
+                        <option value="{{ option }}">{{ option }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+
+            <div class="form-card">
+                <h2>Application Details</h2>
+
+                <label>Application Type</label>
+                <select name="application_type" required>
+                    <option value="">Select application type</option>
+                    {% for option in application_types %}
+                        <option value="{{ option }}">{{ option }}</option>
+                    {% endfor %}
+                </select>
+
+                <label>Study Mode</label>
+                <select name="study_mode" required>
+                    <option value="">Select study mode</option>
+                    {% for option in study_modes %}
+                        <option value="{{ option }}">{{ option }}</option>
+                    {% endfor %}
+                </select>
+
+                <label>University Interest</label>
+                <select name="university_interest" required>
+                    <option value="">Select university</option>
+                    {% for option in universities %}
+                        <option value="{{ option }}">{{ option }}</option>
+                    {% endfor %}
+                </select>
+
+                <label>Available Course</label>
+                <select name="course_interest" required>
+                    <option value="">Select course</option>
+                    {% for option in courses %}
+                        <option value="{{ option }}">{{ option }}</option>
+                    {% endfor %}
+                </select>
+
+                <label>Course Duration</label>
+                <select name="course_duration" required>
+                    <option value="">Select duration</option>
+                    {% for option in course_durations %}
+                        <option value="{{ option }}">{{ option }}</option>
+                    {% endfor %}
+                </select>
+
+                <label>Status</label>
+                <select name="status" required>
+                    {% for option in statuses %}
+                        <option value="{{ option }}">{{ option }}</option>
+                    {% endfor %}
+                </select>
+
+                <label>Internal Notes</label>
+                <textarea name="notes" rows="6"></textarea>
+            </div>
+
+            <div class="form-card form-card-wide">
+                <h2>Document Tracking</h2>
+
+                <div class="checkbox-grid">
+                    <label class="checkbox-item">
+                        <input type="checkbox" name="cv_uploaded">
+                        CV uploaded
+                    </label>
+
+                    <label class="checkbox-item">
+                        <input type="checkbox" name="passport_uploaded">
+                        Passport uploaded
+                    </label>
+
+                    <label class="checkbox-item">
+                        <input type="checkbox" name="transcript_uploaded">
+                        Transcript uploaded
+                    </label>
+
+                    <label class="checkbox-item">
+                        <input type="checkbox" name="personal_statement_uploaded">
+                        Personal statement uploaded
+                    </label>
+                </div>
+            </div>
+
+            <div class="form-card form-card-wide action-card">
+                <button type="submit" class="primary-btn">Save Applicant</button>
+                <a href="{{ url_for('view_applicants') }}" class="secondary-btn action-link small-btn">Cancel</a>
+            </div>
+        </div>
+    </form>
+</div>
+{% endblock %}

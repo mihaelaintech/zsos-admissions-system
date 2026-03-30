@@ -1,0 +1,1000 @@
+/* ================= GLOBAL ================= */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: "Segoe UI", Arial, sans-serif;
+    color: #1f2d3d;
+    background: #f4f6fb;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+h1, h2, h3, h4, h5 {
+    margin-top: 0;
+    color: #173a84;
+}
+
+p {
+    margin-top: 0;
+    line-height: 1.5;
+}
+
+/* ================= PUBLIC PAGES ================= */
+
+.public-main {
+    min-height: 100vh;
+}
+
+.home-container,
+.auth-page {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+    background-image: url("/static/bg.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* ================= GLASS CARD ================= */
+
+.home-card,
+.auth-card {
+    width: 100%;
+    max-width: 430px;
+    background: rgba(255, 255, 255, 0.74);
+    border-radius: 26px;
+    padding: 28px 26px 24px;
+    text-align: center;
+    box-shadow: 0 18px 38px rgba(0, 0, 0, 0.18);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+}
+
+/* ================= REGISTER WIDE CARD ================= */
+
+.auth-card-wide {
+    max-width: 760px;
+    text-align: left;
+}
+
+.auth-card-wide .auth-logo,
+.auth-card-wide .auth-title,
+.auth-card-wide .auth-subtitle,
+.auth-card-wide .auth-helper-text {
+    display: block;
+    text-align: center;
+}
+
+/* ================= LOGO ================= */
+
+.home-logo,
+.auth-logo {
+    width: 125px;
+    height: auto;
+    margin-bottom: 10px;
+}
+
+/* ================= TITLES ================= */
+
+.home-card h2,
+.auth-title {
+    margin: 0 0 18px 0;
+    font-size: 18px;
+    font-weight: 700;
+    color: #173a84;
+    letter-spacing: 0.2px;
+}
+
+.auth-subtitle,
+.auth-helper-text {
+    color: #5c6d8b;
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+/* ================= BUTTONS ================= */
+
+.home-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.home-btn,
+.auth-btn,
+.primary-btn,
+.secondary-btn,
+.outline-btn,
+.save-btn,
+.danger-btn {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    border-radius: 12px;
+    padding: 12px 18px;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.18s ease;
+}
+
+.home-btn,
+.auth-btn,
+.primary-btn,
+.save-btn {
+    background: linear-gradient(135deg, #173a84, #20489d);
+    color: #ffffff;
+    box-shadow: 0 8px 18px rgba(23, 58, 132, 0.22);
+}
+
+.home-btn,
+.auth-btn {
+    width: 100%;
+}
+
+.home-btn:hover,
+.auth-btn:hover,
+.primary-btn:hover,
+.save-btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 12px 22px rgba(23, 58, 132, 0.28);
+}
+
+.home-btn.light,
+.secondary-btn {
+    background: #e8eef8;
+    color: #173a84;
+    box-shadow: none;
+}
+
+.secondary-btn:hover {
+    background: #dce6f5;
+}
+
+.outline-btn {
+    background: #ffffff;
+    color: #173a84;
+    border: 1px solid #173a84;
+}
+
+.outline-btn:hover {
+    background: #f3f7ff;
+}
+
+.danger-btn {
+    background: linear-gradient(135deg, #c62828, #e53935);
+    color: #ffffff;
+    box-shadow: 0 8px 18px rgba(198, 40, 40, 0.20);
+}
+
+.danger-btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 12px 22px rgba(198, 40, 40, 0.28);
+}
+
+.small-btn {
+    padding: 10px 14px;
+    font-size: 13px;
+    border-radius: 10px;
+}
+
+.inline-btn {
+    width: auto;
+}
+
+/* ================= AUTH FORM ================= */
+
+.auth-card form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.auth-card input,
+.auth-card select,
+.auth-card textarea {
+    width: 100%;
+    padding: 13px 14px;
+    border: 1px solid #cbd5e5;
+    border-radius: 12px;
+    font-size: 14px;
+    outline: none;
+    background: #ffffff;
+}
+
+.auth-card input:focus,
+.auth-card select:focus,
+.auth-card textarea:focus {
+    border-color: #173a84;
+    box-shadow: 0 0 0 3px rgba(23, 58, 132, 0.10);
+}
+
+.register-form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(220px, 1fr));
+    gap: 14px 18px;
+    margin-top: 18px;
+}
+
+.register-form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.register-form-group label {
+    font-size: 13px;
+    font-weight: 700;
+    color: #1f2d3d;
+    margin-bottom: 7px;
+}
+
+.register-form-group input,
+.register-form-group select,
+.register-form-group textarea {
+    width: 100%;
+    padding: 13px 14px;
+    border: 1px solid #cbd5e5;
+    border-radius: 12px;
+    font-size: 14px;
+    outline: none;
+    background: #ffffff;
+}
+
+.register-form-group input:focus,
+.register-form-group select:focus,
+.register-form-group textarea:focus {
+    border-color: #173a84;
+    box-shadow: 0 0 0 3px rgba(23, 58, 132, 0.10);
+}
+
+.register-form-group textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+.register-full-width {
+    grid-column: 1 / -1;
+}
+
+/* ================= ERROR ================= */
+
+.error-message {
+    color: #c62828;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+/* ================= INTERNAL MAIN ================= */
+
+.internal-main {
+    min-height: 100vh;
+    background: #f4f6fb;
+}
+
+/* ================= HEADER ================= */
+
+.top-header {
+    height: 72px;
+    background: #ffffff;
+    border-bottom: 1px solid #e4e8f0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 28px;
+}
+
+.top-header-left,
+.top-header-right {
+    display: flex;
+    align-items: center;
+}
+
+.top-header-right {
+    gap: 18px;
+}
+
+.top-logo-link {
+    display: inline-flex;
+    align-items: center;
+}
+
+.top-logo {
+    height: 40px;
+    width: auto;
+    display: block;
+}
+
+.top-link {
+    color: #6a2fbc;
+    font-size: 13px;
+    font-weight: 600;
+    transition: opacity 0.18s ease;
+}
+
+.top-link:hover {
+    opacity: 0.75;
+}
+
+.logout-link {
+    color: #d32f2f;
+}
+
+/* ================= SUB NAV ================= */
+
+.sub-navbar {
+    height: 58px;
+    background: linear-gradient(135deg, #173a84, #173a84);
+    display: flex;
+    align-items: center;
+    padding: 0 28px;
+    gap: 30px;
+    box-shadow: inset 0 -1px 0 rgba(255,255,255,0.08);
+}
+
+.sub-nav-link {
+    color: #ffffff;
+    font-weight: 700;
+    font-size: 14px;
+    padding: 18px 0 16px;
+    border-bottom: 3px solid transparent;
+    transition: all 0.18s ease;
+}
+
+.sub-nav-link:hover {
+    opacity: 0.9;
+}
+
+.sub-nav-link.active {
+    border-bottom: 3px solid #f4a62a;
+}
+
+/* ================= PAGE CONTAINERS ================= */
+
+.dashboard-page,
+.student-dashboard {
+    max-width: 1180px;
+    margin: 34px auto;
+    padding: 0 20px 40px;
+}
+
+/* ================= STANDARD CARDS ================= */
+
+.dashboard-card,
+.dashboard-title-card,
+.form-card,
+.form-card-wide,
+.app-form-card,
+.info-card,
+.filter-card,
+.applicant-card {
+    background: #ffffff;
+    border-radius: 20px;
+    box-shadow: 0 12px 28px rgba(16, 34, 72, 0.08);
+}
+
+/* ================= TITLE / HERO CARD ================= */
+
+.dashboard-title-card {
+    padding: 28px 30px;
+    margin-bottom: 22px;
+}
+
+.dashboard-title-card h1 {
+    font-size: 28px;
+    line-height: 1.2;
+    margin-bottom: 8px;
+    color: #173a84;
+}
+
+.dashboard-title-card p {
+    color: #5b6f8e;
+    font-size: 15px;
+    margin-bottom: 14px;
+}
+
+/* ================= APP FORM CARD ================= */
+
+.app-form-card {
+    padding: 0;
+    box-shadow: none;
+    background: transparent;
+}
+
+/* ================= GRID LAYOUT ================= */
+
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(320px, 1fr));
+    gap: 22px;
+}
+
+.form-card {
+    padding: 24px;
+}
+
+.form-card-wide {
+    grid-column: 1 / -1;
+    padding: 24px;
+}
+
+.action-card {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-top: 8px;
+    padding-top: 10px;
+}
+
+/* ================= FORM CARD TITLES ================= */
+
+.form-card h2,
+.form-card-wide h2 {
+    margin-bottom: 18px;
+    font-size: 17px;
+    font-weight: 800;
+    color: #173a84;
+}
+
+/* ================= FORM ELEMENTS ================= */
+
+.form-card label,
+.form-card-wide label {
+    display: block;
+    font-size: 13px;
+    font-weight: 700;
+    color: #1f2d3d;
+    margin-bottom: 7px;
+}
+
+.form-card input,
+.form-card select,
+.form-card textarea,
+.form-card-wide input,
+.form-card-wide select,
+.form-card-wide textarea {
+    width: 100%;
+    padding: 12px 14px;
+    border: 1px solid #cfd8e6;
+    border-radius: 12px;
+    font-size: 14px;
+    background: #f9fbff;
+    color: #1f2d3d;
+    outline: none;
+    transition: border-color 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
+    margin-bottom: 16px;
+}
+
+.form-card input:focus,
+.form-card select:focus,
+.form-card textarea:focus,
+.form-card-wide input:focus,
+.form-card-wide select:focus,
+.form-card-wide textarea:focus {
+    border-color: #173a84;
+    background: #ffffff;
+    box-shadow: 0 0 0 3px rgba(23, 58, 132, 0.10);
+}
+
+.form-card input[disabled],
+.form-card input[readonly] {
+    background: #f2f5fb;
+    color: #6d7d96;
+    cursor: not-allowed;
+}
+
+.form-card textarea,
+.form-card-wide textarea {
+    resize: vertical;
+    min-height: 110px;
+}
+
+/* ================= CHECKBOX GRID ================= */
+
+.checkbox-row,
+.checkbox-grid {
+    margin-top: 10px;
+    margin-bottom: 18px;
+}
+
+.checkbox-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(220px, 1fr));
+    gap: 14px 22px;
+}
+
+.checkbox-item,
+.checkbox-row label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 15px;
+    font-weight: 600;
+    color: #1f2d3d;
+    margin-bottom: 0;
+}
+
+.checkbox-item input[type="checkbox"],
+.checkbox-row input[type="checkbox"] {
+    width: 17px;
+    height: 17px;
+    margin: 0;
+    accent-color: #173a84;
+}
+
+/* ================= SAVE / ACTION BUTTON SPACING ================= */
+
+.action-card .primary-btn,
+.action-card .secondary-btn,
+.action-card .save-btn,
+.action-card .danger-btn {
+    margin-top: 4px;
+}
+
+.save-btn {
+    margin-top: 10px;
+    min-width: 180px;
+    width: auto;
+}
+/* ================= DASHBOARD GRID / SUMMARY CARDS ================= */
+
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
+}
+
+.dashboard-card {
+    padding: 22px;
+}
+
+.dashboard-card-wide {
+    grid-column: 1 / -1;
+}
+
+.stat-card {
+    min-height: 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.card-label {
+    font-size: 14px;
+    font-weight: 700;
+    color: #5b6f8e;
+    margin-bottom: 12px;
+}
+
+.stat-number,
+.dashboard-metric {
+    font-size: 34px;
+    font-weight: 800;
+    color: #173a84;
+    margin: 0;
+    line-height: 1;
+}
+
+/* ================= STATUS AREA ================= */
+
+.status-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(180px, 1fr));
+    gap: 16px;
+    margin-top: 10px;
+}
+
+.status-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 16px;
+    background: #ffffff;
+    border: 1px solid #e4ebf5;
+    border-radius: 14px;
+}
+
+.status-total {
+    font-size: 18px;
+    font-weight: 800;
+    color: #173a84;
+}
+
+/* ================= FILTER / SEARCH AREA ================= */
+
+.filter-card {
+    padding: 22px;
+    margin-bottom: 22px;
+}
+
+.filter-form,
+.search-filter-bar,
+.filter-bar {
+    display: grid;
+    grid-template-columns: 1.5fr 0.8fr auto;
+    gap: 12px;
+    align-items: end;
+}
+
+.filter-group label,
+.search-filter-group label {
+    display: block;
+    font-size: 13px;
+    font-weight: 700;
+    margin-bottom: 8px;
+    color: #1f2d3d;
+}
+
+.filter-group input,
+.filter-group select,
+.search-filter-group input,
+.search-filter-group select {
+    width: 100%;
+    padding: 12px 14px;
+    border: 1px solid #cfd8e6;
+    border-radius: 12px;
+    font-size: 14px;
+    background: #ffffff;
+    outline: none;
+}
+
+.filter-group input:focus,
+.filter-group select:focus,
+.search-filter-group input:focus,
+.search-filter-group select:focus {
+    border-color: #173a84;
+    box-shadow: 0 0 0 3px rgba(23, 58, 132, 0.10);
+}
+
+.filter-actions {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+/* ================= APPLICANTS GRID ================= */
+
+.applicants-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+}
+
+.applicant-card {
+    padding: 22px;
+}
+
+.applicant-card-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 12px;
+}
+
+.applicant-card h3,
+.applicant-card h4 {
+    font-size: 18px;
+    margin-bottom: 6px;
+    color: #173a84;
+}
+
+.applicant-card p {
+    font-size: 14px;
+    margin-bottom: 6px;
+}
+
+.applicant-meta p {
+    margin-bottom: 8px;
+}
+
+.applicant-actions {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-top: 16px;
+    align-items: center;
+}
+
+.action-link {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.muted-text {
+    color: #657896;
+}
+
+/* ================= STATUS BADGES - COMPANY COLOURS ================= */
+
+.status,
+.status-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 7px 13px;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 800;
+    line-height: 1;
+    white-space: nowrap;
+    border: 1px solid transparent;
+}
+
+/* Blue brand */
+.status-new-lead,
+.status-badge.new,
+.status-badge.new-lead,
+.status.new,
+.status-documents-verified,
+.status-badge.documents-verified {
+    background: rgba(23, 58, 132, 0.10);
+    color: #173a84;
+    border-color: rgba(23, 58, 132, 0.18);
+}
+
+/* Orange brand */
+.status-documents-received,
+.status-badge.documents-received,
+.status-interview-scheduled,
+.status-badge.interview-scheduled {
+    background: rgba(244, 166, 42, 0.16);
+    color: #b87400;
+    border-color: rgba(244, 166, 42, 0.28);
+}
+
+/* Final stages */
+.status-application-submitted,
+.status-badge.application-submitted,
+.status-offer-received,
+.status-badge.offer-received {
+    background: #173a84;
+    color: #ffffff;
+    border-color: #f4a62a;
+}
+
+/* ================= STUDENT PAGE ================= */
+
+.student-dashboard {
+    max-width: 920px;
+    margin: 34px auto;
+    padding: 0 20px 40px;
+}
+
+.student-dashboard .dashboard-card {
+    padding: 28px;
+}
+
+.student-dashboard .dashboard-card h1 {
+    font-size: 28px;
+    margin-bottom: 8px;
+}
+
+.student-dashboard .dashboard-card > p {
+    color: #5b6f8e;
+    margin-bottom: 24px;
+}
+
+.student-form-section:last-of-type {
+    margin-bottom: 28px;
+}
+
+/* ================= APPLICANT DETAIL ================= */
+
+.two-col-grid {
+    grid-template-columns: repeat(2, minmax(320px, 1fr));
+    gap: 22px;
+}
+
+.detail-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 16px;
+    margin-bottom: 16px;
+}
+
+.detail-header h2 {
+    margin-bottom: 6px;
+}
+
+.detail-header p {
+    color: #657896;
+    margin-bottom: 0;
+}
+
+.document-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.document-list li {
+    padding: 12px 0;
+    border-bottom: 1px solid #e6ebf3;
+    font-size: 14px;
+}
+
+.document-list li:last-child {
+    border-bottom: none;
+}
+
+/* ================= REGISTER SUCCESS ================= */
+
+.credentials-box {
+    background: #f8fbff;
+    border: 1px solid #e4ebf5;
+    border-radius: 14px;
+    padding: 16px 18px;
+    margin: 16px 0;
+    text-align: left;
+}
+
+.credentials-box p {
+    margin-bottom: 8px;
+    font-size: 14px;
+    color: #1f2d3d;
+}
+
+.credentials-box p:last-child {
+    margin-bottom: 0;
+}
+
+.info-note {
+    color: #657896;
+    font-size: 13px;
+    margin: 12px 0 16px;
+    line-height: 1.5;
+}
+
+.auth-links {
+    margin-top: 14px;
+}
+
+.auth-links a {
+    display: block;
+    font-size: 13px;
+    color: #173a84;
+    font-weight: 600;
+    margin-top: 8px;
+}
+
+.auth-links a:hover {
+    text-decoration: underline;
+}
+
+/* ================= HELPERS ================= */
+
+.section-spacer {
+    margin-top: 20px;
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 1200px) {
+    .dashboard-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .applicants-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .status-grid {
+        grid-template-columns: repeat(2, minmax(180px, 1fr));
+    }
+}
+
+@media (max-width: 950px) {
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .form-card-wide {
+        grid-column: auto;
+    }
+
+    .checkbox-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .filter-form,
+    .search-filter-bar,
+    .filter-bar {
+        grid-template-columns: 1fr;
+    }
+
+    .applicants-grid,
+    .dashboard-grid,
+    .status-grid,
+    .two-col-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .dashboard-title-card,
+    .form-card,
+    .form-card-wide,
+    .applicant-card,
+    .dashboard-card {
+        padding: 22px 18px;
+    }
+
+    .student-dashboard {
+        padding: 0 14px 30px;
+    }
+
+    .auth-card-wide {
+        max-width: 430px;
+        text-align: center;
+    }
+
+    .register-form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .register-form-group {
+        text-align: left;
+    }
+}
+
+@media (max-width: 700px) {
+    .top-header {
+        flex-direction: column;
+        align-items: flex-start;
+        height: auto;
+        padding: 14px 16px;
+        gap: 10px;
+    }
+
+    .top-header-right {
+        gap: 12px;
+        flex-wrap: wrap;
+    }
+
+    .sub-navbar {
+        height: auto;
+        padding: 0 16px;
+        flex-wrap: wrap;
+        gap: 18px;
+    }
+
+    .dashboard-page,
+    .student-dashboard {
+        margin-top: 24px;
+        padding: 0 14px 30px;
+    }
+
+    .dashboard-title-card h1,
+    .student-dashboard .dashboard-card h1 {
+        font-size: 24px;
+    }
+
+    .save-btn,
+    .primary-btn,
+    .secondary-btn,
+    .danger-btn {
+        width: 100%;
+    }
+
+    .applicant-actions,
+    .filter-actions,
+    .action-card {
+        flex-direction: column;
+        align-items: stretch;
+    }
+}
